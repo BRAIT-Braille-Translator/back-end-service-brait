@@ -3,6 +3,6 @@ exports.getHelloWord = async () => {
         return 'Hello Word'
     } catch (error) {
         console.error(error);
-        throw new Error('Internal Server Error');
+        throw new Error('Internal Server Erro');
     }
 }
