@@ -1,0 +1,30 @@
+name: Deploy Backend Service Brait
+
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v2
+
+      - name: install the gcloud cli
+        uses: google-github-action/setup-gloud@v0
+        with:
+          project_id: ${{ secrets.GOOGLE_PROJECT }}
+          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          export_default_credentials: true
+
+      - name: build and push the docker image
+        env:
+          GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
+        run:
+          gcloud auth configure-docker asia-southeast2-doker.pkg.dev
+          docker build -t asia-southeast2-docker.pkg.dev/$GOOGLE_PROJECT/ci-cd-pipeline/back-end-service-brait:latest .
+          docker push asia-southeast2-docker.pkg.dev/$GOOGLE_PROJECT/ci-cd-pipeline/back-end-service-brait:latest
+
+
+
