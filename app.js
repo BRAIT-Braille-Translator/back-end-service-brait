@@ -12,5 +12,5 @@ app.use('/',require('./src/routes/index'))
 
 
 app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT} and this is database url ${DATABASE_URL}`);
+  console.log(`Example app listening at http://localhost:${PORT} and this is database url are ${DATABASE_URL}`);
 });
