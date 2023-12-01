@@ -26,5 +26,19 @@ jobs:
           docker build -t asia-southeast2-docker.pkg.dev/$GOOGLE_PROJECT/ci-cd-pipeline/back-end-service-brait:latest .
           docker push asia-southeast2-docker.pkg.dev/$GOOGLE_PROJECT/ci-cd-pipeline/back-end-service-brait:latest
 
+      - name: deploy to Cloud Run
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
+        run: |
+          gcloud run deploy back-end-service-brait \
+            --image asia-southeast2-docker.pkg.dev/$GOOGLE_PROJECT/ci-cd-pipeline/back-end-service-brait:latest \
+            --platform managed \
+            --region asia-southeast2 \
+            --allow-unauthenticated \
+            --set-env-vars=DATABASE_URL=$DATABASE_URL
+            
+          
+
 
 
