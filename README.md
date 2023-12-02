@@ -14,6 +14,13 @@
    ```
 3. change example env to .env file
    ```sh
-    cp .env.example .env
-  ``` 
-
+    cp .env.example .env 
+     ```
+4. run docker compose
+   ```sh
+    docker-compose up -d
+     ```
+5. update .env DATABASE_URL depends on your database url
+   ```sh
+   DATABASE_URL="mysql://USER:PASSWORD@HOST:PORT/DATABASE"
+     ```
