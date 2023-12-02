@@ -24,3 +24,11 @@
    ```sh
    DATABASE_URL="mysql://USER:PASSWORD@HOST:PORT/DATABASE"
      ```
+6. run prisma migrate to migrate schema
+   ```sh
+   npx prisma migrate dev --name init
+     ```
+7. run npm run start to run the service
+   ```sh
+   npm run start
+     ```
