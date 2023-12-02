@@ -1,6 +1,6 @@
 exports.getHelloWord = async () => {
     try {
-        return 'Hello Word'
+        return 'Hello Irhan'
     } catch (error) {
         console.error(error);
         throw new Error('Internal Server Error');
