@@ -3,6 +3,20 @@
 
 ## Getting Started
 
+### Project Struture
+* prisma/: Prisma configuration and database schema files.
+* src/: Application source code. 
+  * controllers/: Controllers handling the application logic. 
+  * routes/: Express.js route definitions. 
+  * middlewares/: Custom middleware functions. 
+  * config/: Configuration files.
+  * utils/: Utility modules and helper functions.
+  * repository/: Modules for interacting with databases or external data sources.
+* tests/: Test files.
+* .env: Environment variables.
+* package.json: Project configuration and dependencies.
+* app.js: Main server file.
+
 ### Installation
 1. clone the repo
    ```sh
