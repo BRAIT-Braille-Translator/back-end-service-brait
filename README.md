@@ -5,7 +5,8 @@
 
 ### Project Struture
 * prisma/: Prisma configuration and database schema files.
-* src/: Application source code. 
+* src/: Application source code.
+  * services/: Service modules for specific business logic.
   * controllers/: Controllers handling the application logic. 
   * routes/: Express.js route definitions. 
   * middlewares/: Custom middleware functions. 
