@@ -37,6 +37,7 @@ jobs:
             --region asia-southeast2 \
             --allow-unauthenticated \
             --set-env-vars=DATABASE_URL=$DATABASE_URL
+            --max-instances=1
             
           
 
