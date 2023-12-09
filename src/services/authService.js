@@ -1,5 +1,5 @@
 const {PrismaClient}  = require("@prisma/client")
-const bcrypt = require("bcrypt")
+const bcryptjs = require("bcryptjs")
 const prisma = new PrismaClient()
 
 
@@ -10,7 +10,7 @@ module.exports = {
                 data: {
                     username:userData.username,
                     email:userData.email,
-                    password:bcrypt.hashSync(userData.password,8),
+                    password:bcryptjs.hashSync(userData.password,8),
                     profil_image:""
                 }
             })
