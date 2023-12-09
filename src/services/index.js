@@ -1,8 +1,7 @@
-exports.getHelloWord = async () => {
-    try {
-        return 'Hello dunia'
-    } catch (error) {
-        console.error(error);
-        throw new Error('Internal Server Error');
-    }
+const testService = require("./testService")
+const userService = require("./userService")
+
+module.exports = {
+    testService,
+    userService,
 }
