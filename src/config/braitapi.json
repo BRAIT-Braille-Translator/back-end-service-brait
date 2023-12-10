@@ -15,9 +15,10 @@
     }
   ],
   "paths": {
-    "/signup": {
+    "/auth/signup": {
       "post": {
         "summary": "this api use to sign up new user",
+        "tags": ["auth"],
         "requestBody": {
           "content": {
             "application/json": {
