@@ -6,9 +6,45 @@
     "version": "1.0.0"
   },
   "host": "https://back-end-service-brait-7zayw3sj6q-et.a.run.app",
+  "basePath": "/",
   "schemes": [
     "https"
   ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
+    "/singup": {
+      "post": {
+        "summary": "this api use to sign up new user",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success":{
+                  "type": "boolean"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object"
+                }
+              },
+              "example": {
+                "success": false,
+                "message": "Username is already taken!",
+                "data": {}
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
