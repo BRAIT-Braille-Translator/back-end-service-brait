@@ -5,10 +5,13 @@ const controller = require('../controllers')
 const middleware = require("../middlewares")
 
 
-router.get('/',controller.testController.getHelloWorld)
+router.get("/",controller.testController.getHelloWorld)
 
 
-router.post('/signin',[middleware.authMiddleware.checkDuplicateUser],controller.authController.signup)
+router.post("/signup",[middleware.authMiddleware.checkDuplicateUserUsername,middleware.authMiddleware.checkDuplicateUserEmail],controller.authController.signup)
+router.post("/login",controller.authController.login)
+router.get("/test/auth",  [middleware.jwtMiddleware.verifyToken],controller.testController.getHelloWorld)
+
 
 module.exports = router;
 

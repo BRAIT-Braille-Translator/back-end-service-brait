@@ -1,12 +1,10 @@
-const authService = require('../services')
+const service = require('../services')
 const utils = require("../utils")
 const {Prisma} = require("@prisma/client")
 
 module.exports = {
     async signup(req,res,next){
         try {
-
-            console.log(req.body)
             if (req.body.username === undefined
                 ||req.body.email === undefined
                 || req.body.password === undefined
@@ -16,9 +14,9 @@ module.exports = {
 
             let request = req.body
 
-            let user = await authService.authService.signup(request)
+            let user = await service.authService.signup(request)
 
-            res.status(404).json(utils.responseTemplate.successResponse(
+            res.status(200).json(utils.responseTemplate.successResponse(
                 true,
                 `${user}`,
             ))
@@ -26,7 +24,27 @@ module.exports = {
         }catch (error){
             res.status(500).json(utils.responseTemplate.errorResponse(
                 false,
-                `${error}`,
+                `${error.message}`,
+            ));
+        }
+    },
+    async login(req,res,next){
+        try {
+
+            let request = req.body
+            let accessToken = await service.authService.login(request)
+
+            res.status(200).json(utils.responseTemplate.successResponse(
+                true,
+                "login success",
+                {
+                    accessToken:accessToken
+                }
+            ))
+        }catch (error) {
+            res.status(500).json(utils.responseTemplate.errorResponse(
+                false,
+                `${error.message}`,
             ));
         }
     }
