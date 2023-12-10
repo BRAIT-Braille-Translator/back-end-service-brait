@@ -1,11 +1,14 @@
 const express = require('express');
-const res = require('express/lib/response');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../config/braitapi.json')
 const router = express.Router();
 const controller = require('../controllers')
 const middleware = require("../middlewares")
 
 
-router.get("/",controller.testController.getHelloWorld)
+
+router.use('/', swaggerUi.serve);
+router.get('/', swaggerUi.setup(swaggerDocument));
 
 
 router.post("/signup",[middleware.authMiddleware.checkDuplicateUserUsername,middleware.authMiddleware.checkDuplicateUserEmail],controller.authController.signup)
