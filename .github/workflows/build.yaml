@@ -41,8 +41,8 @@ jobs:
             --allow-unauthenticated \
             --set-env-vars=DATABASE_URL=$DATABASE_URL \
             --set-env-vars=SECRET_KEY=$SECRET_KEY \
-            --set-env-vars=CREDENTIALS_KEY_JSON=CREDENTIALS_KEY_JSON \
-            --set-env-vars=BASE_PATH_BRAIT_MODEL_ML=BASE_PATH_BRAIT_MODEL_ML \
+            --set-env-vars=CREDENTIALS_KEY_JSON=$CREDENTIALS_KEY_JSON \
+            --set-env-vars=BASE_PATH_BRAIT_MODEL_ML=$BASE_PATH_BRAIT_MODEL_ML \
             --max-instances=1
             
           
