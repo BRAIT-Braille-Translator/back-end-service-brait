@@ -1,5 +1,5 @@
 const {Storage} = require("@google-cloud/storage")
-const gcpCredential = JSON.parse(process.env.CREDENTIALS_KEY_JSON)
+// const gcpCredential = JSON.parse(process.env.CREDENTIALS_KEY_JSON)
 const { v4: uuidv4 } = require('uuid');
 const axios = require("axios")
 const braitMlApiPath = process.env.BASE_PATH_BRAIT_MODEL_ML
