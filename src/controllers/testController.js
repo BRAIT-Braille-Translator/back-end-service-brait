@@ -13,7 +13,8 @@ module.exports = {
 
             res.status(404).json(utils.responseTemplate.successResponse(
                 true,
-                gcpCredential,
+                "success get string Hello World",
+                data
             ))
         } catch (error) {
             res.status(500).json(utils.responseTemplate.errorResponse(
