@@ -8,12 +8,13 @@ module.exports = {
             console.log(image_file)
             let userId = req.userId
             let imageBucketUrl = await service.braitMlService.uploadImageBraille(image_file,userId)
+            let textPrediction = await  service.braitMlService.predictImageBraille(imageBucketUrl)
 
             res.status(200).json(utils.responseTemplate.successResponse(
                 true,
                 "succes translate Braille image",
                 {
-                    urlImage:imageBucketUrl
+                    text:textPrediction
                 }
             ))
         }catch (error){

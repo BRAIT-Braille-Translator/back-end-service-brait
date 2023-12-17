@@ -31,7 +31,8 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
           SECRET_KEY: ${{secrets.SECRET_KEY}}
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          GOOGLE_APPLICATION_CREDENTIALS_KEY_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_KEY_JSON }}
+          BASE_PATH_BRAIT_MODEL_ML: ${{ secrets.BASE_PATH_BRAIT_MODEL_ML }}
         run: |
           gcloud run deploy back-end-service-brait \
             --image asia-southeast2-docker.pkg.dev/$GOOGLE_PROJECT/ci-cd-pipeline/back-end-service-brait:latest \
@@ -39,8 +40,9 @@ jobs:
             --region asia-southeast2 \
             --allow-unauthenticated \
             --set-env-vars=DATABASE_URL=$DATABASE_URL \
-            --set-env-vars=SECRET_KEY=$SECRET_KEY\
-            --set-env-vars=GOOGLE_APPLICATION_CREDENTIALS=GOOGLE_APPLICATION_CREDENTIALS\
+            --set-env-vars=SECRET_KEY=$SECRET_KEY \
+            --set-env-vars=GOOGLE_APPLICATION_CREDENTIALS_KEY_JSON=GOOGLE_APPLICATION_CREDENTIALS_KEY_JSON \
+            --set-env-vars=BASE_PATH_BRAIT_MODEL_ML=BASE_PATH_BRAIT_MODEL_ML \
             --max-instances=1
             
           
