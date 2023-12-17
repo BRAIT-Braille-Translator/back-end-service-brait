@@ -1,8 +1,10 @@
 const {Storage} = require("@google-cloud/storage")
-const gcpCredential = JSON.parse(process.env.CREDENTIALS_KEY_JSON)
+const decodeCREDENTIALS_KEY_JSON =Buffer.from(process.env.CREDENTIALS_KEY_JSON,'base64')
+const gcpCredential =  JSON.parse(decodeCREDENTIALS_KEY_JSON.toString('utf-8'))
 const { v4: uuidv4 } = require('uuid');
 const axios = require("axios")
 const braitMlApiPath = process.env.BASE_PATH_BRAIT_MODEL_ML
+
 
 module.exports = {
    async uploadImageBraille(image,userId) {
