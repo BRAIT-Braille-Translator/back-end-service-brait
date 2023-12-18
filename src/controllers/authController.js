@@ -4,13 +4,6 @@ const utils = require("../utils")
 module.exports = {
     async signup(req,res,next){
         try {
-            if (req.body.username === undefined
-                ||req.body.email === undefined
-                || req.body.password === undefined
-            ){
-                throw new Error("request is not valid")
-            }
-
             let request = req.body
 
             let user = await service.authService.signup(request)
