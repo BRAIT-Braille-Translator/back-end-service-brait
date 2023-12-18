@@ -108,6 +108,52 @@
           }
         }
       }
+    },
+    "/predict/image": {
+      "post": {
+        "summary": "this api use to braille image and translate it to text alphabet",
+        "tags": ["brait-model"],
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "description": "jwt token to be passed as a header",
+            "required": true,
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhcmkiLCJlbWFpbCI6Indpc251YXJpNDY1OEBnbWFpbC5jb20iLCJpYXQiOjE3MDIyMDUzNDgsImV4cCI6MTcwMjI5MTc0OH0._-WWAc-PqEe0JxwedzV20Ue0GHtD0_Viwc0Nfe8sMhk"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "image/jpeg":{
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "message": "succes translate Braille image",
+                  "data": {
+                    "text": "family"
+                  }
+                 }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
