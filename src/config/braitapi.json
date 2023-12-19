@@ -187,6 +187,54 @@
           }
         }
       }
+    },
+    "/user/profile": {
+      "post": {
+        "summary": "this api use to update user profile image",
+        "tags": ["user"],
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "description": "jwt token to be passed as a header",
+            "required": true,
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhcmkiLCJlbWFpbCI6Indpc251YXJpNDY1OEBnbWFpbC5jb20iLCJpYXQiOjE3MDIyMDUzNDgsImV4cCI6MTcwMjI5MTc0OH0._-WWAc-PqEe0JxwedzV20Ue0GHtD0_Viwc0Nfe8sMhk"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "image/jpeg":{
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "profileImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "message": "succes update user image profile ",
+                  "data": {
+                    "username": "ari",
+                    "email": "wisnuari4658@gmail.com",
+                    "profil_image": "https://storage.googleapis.com/brait-bucket/user/profil-image-1-cdf6e0e6-9c46-4cf4-99a3-05b16c3b12f8.png"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

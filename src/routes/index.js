@@ -16,9 +16,11 @@ router.post("/auth/login",controller.authController.login)
 //ml-route
 router.post("/predict/image",[middleware.jwtMiddleware.verifyToken,middleware.uploadMiddleware.upload.single("image")],controller.braitMLController.predictImageBraille)
 
-
+//user-route
 router.get("/user",[middleware.jwtMiddleware.verifyToken],controller.userController.getUserData)
+router.post("/user/profile",[middleware.jwtMiddleware.verifyToken,middleware.uploadMiddleware.upload.single("profileImage")],controller.userController.updateUserProfileImage)
 
+//test-route
 router.get("/test/auth",  [middleware.jwtMiddleware.verifyToken],controller.testController.getHelloWorld)
 
 

@@ -18,9 +18,10 @@ module.exports = {
            });
 
            const bucket = storageClient.bucket('brait-bucket');
+           const folderName = "predict"
 
            let fileExtension = image.mimetype === 'image/jpeg' ? 'jpeg' : 'png';
-           let imageName = `image-${userId}-${uuidv4()}.${fileExtension}`;
+           let imageName = `${folderName}/image-${userId}-${uuidv4()}.${fileExtension}`;
 
            const blob = await bucket.file(imageName);
            const blobStream = await blob.createWriteStream();
