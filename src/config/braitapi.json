@@ -154,6 +154,39 @@
           }
         }
       }
+    },
+    "/user": {
+      "get": {
+        "summary": "this api use to get user data",
+        "tags": ["user"],
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "description": "jwt token to be passed as a header",
+            "required": true,
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhcmkiLCJlbWFpbCI6Indpc251YXJpNDY1OEBnbWFpbC5jb20iLCJpYXQiOjE3MDIyMDUzNDgsImV4cCI6MTcwMjI5MTc0OH0._-WWAc-PqEe0JxwedzV20Ue0GHtD0_Viwc0Nfe8sMhk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "message": "succes get user data",
+                  "data": {
+                    "username": "ari",
+                    "email": "wisnuari4658@gmail.com",
+                    "profil_image": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
